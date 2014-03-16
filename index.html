@@ -2,51 +2,34 @@
 <html>
 	<title>&nbsp;</title>
 	<head>
-		<style>
-			#needle {
-
-				position: absolute;
-				top: 8px;
-				left: 98px;
-				z-index: 10;
-			}
-
-		</style>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
-		<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
-		<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
-		<script type="text/javascript" charset="utf-8" src="lib/cordova.js"></script>
-		<script src="lib/jqRotate.js"></script>
+		<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+		
+		<script>
+			document.addEventListener("deviceready", onDeviceReady, false);
+
+			function onDeviceReady() {
+				document.addEventListener("pause", onPause, false);
+				document.addEventListener("resume", onResume, false);
+				alert("Device is Ready");
+			}
+
+			function onPause(){
+	
+				alert("paused!");
+			}
+
+			function onResume()
+			{
+				alert("resume");
+			}
+</script>
 	</head>
 	<body>
-		<img src="img/compass.png" id="needle">
+		<div id="1">
+			<iframe src="http://http://kleverkids.de/b/veranstaltungen/" style="border: none;" width="100%" height="100%"></iframe>
+		</div>
 	</body>
 </html>
-<script>
-	document.addEventListener("deviceready", onDeviceReady, false); //creates a listener that waits for the deviceready event and then fires onDevice ready function
-
-	function onDeviceReady() { 
-		startCompass(); //runs the startCompass function
-	}
-
-	function startCompass() {
-
-		var options = {
-			frequency : 50 //sets the compass heading to be updated every 50 milliseconds
-		};
-
-		navigator.compass.watchHeading(onSuccess, onError, options); //gets the compass heading from device and passes heading to onSuccess function
-	}
-
-	function onSuccess(heading) {//device s magnetic heading is passed to heading variable
-
-		$("#needle").rotate(-heading.magneticHeading); //jquery function that gets the #needle id and rotates it minus the current heading
-	}
-
-	function onError(compassError) { //if there is an error the error will be passed to onError in the compassError variable
-		alert('Compass error: ' + compassError.code); //displays an alert with the error code
-	}
-</script>
