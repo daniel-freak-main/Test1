@@ -9,23 +9,13 @@
 		<script type="text/javascript" charset="utf-8" src="jquery.js"></script>
 		
 		<script>
+			
 			document.addEventListener("deviceready", onDeviceReady, false);
 
 			function onDeviceReady() {
-				document.addEventListener("pause", onPause, false);
-				document.addEventListener("resume", onResume, false);
 				//alert("Device is Ready");
 				go('http://kleverkids.de/b/s.start');
-			}
-
-			function onPause(){
-	
-				//alert("paused!");
-			}
-
-			function onResume()
-			{
-				//alert("resume");
+				login();
 			}
 			
 			function go(url) 
@@ -41,11 +31,35 @@
     			xmlhttp.open("GET", url , true);
     			xmlhttp.send();
 			}
+			
+			function checklogin() 
+			{
+				var login_n = window.localStorage.getItem("login_name");
+				var login_p = window.localStorage.getItem("login_pass");
+				var url = "http://kleverkids.de/mitglied/checkapp.php?un=" + login_n + "&pw=" + login_p;
+    			var xmlhttp = new XMLHttpRequest();
+   				xmlhttp.onreadystatechange=function(){
+       				if (xmlhttp.readyState === 4){
+            			if (xmlhttp.status === 200) {
+                			go("http://kleverkids.de/mitglied/b/dateien/getnews.php?a=" + xmlhttp.responseText);
+            			}
+        			}
+    			};
+    			xmlhttp.open("GET", url , true);
+    			xmlhttp.send();
+			}
+			
+			function login()
+			{
+				window.localStorage.setItem("login_name", "value");
+				window.localStorage.setItem("login_pass", "value");
+			}
+			
 </script>
 	</head>
 	<body>
 		<div id="1">
-			<a onclick="go('http://kleverkids.de/b/s.start')">Kleverkids</a> <a onclick="go('http://kleverkids.de/b/veranstaltungen')">Veranstaltungen</a> <a>Aktuelles</a> <a>Stammtisch</a> <a>News</a>
+			<a onclick="go('http://kleverkids.de/b/s.start')">Kleverkids</a> <a onclick="go('http://kleverkids.de/b/veranstaltungen')">Veranstaltungen</a> <a>Aktuelles</a> <a>Stammtisch</a> <a onclick="checklogin()">News</a>
 			<div id="login">
 			</div>
 			<div id="content">
