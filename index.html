@@ -50,10 +50,9 @@
 			
 			function login()
 			{	
-				alert(document.getElementById('name').innerHTML.value);
-				alert(document.getElementById('pass').innerHTML.value);
+				alert(document.getElementById('login_name').innerHTML.value);
 				window.localStorage.setItem("login_name", document.getElementById('name').innerHTML.value);
-				window.localStorage.setItem("login_pass", document.getElementById('pass').innerHTML.value);
+				window.localStorage.setItem("login_pass","Lady2996");
 				checklogin();
 			}
 			
@@ -65,11 +64,10 @@
 				<a onclick="go('http://kleverkids.de/b/s.start')">Kleverkids</a> <a onclick="go('http://kleverkids.de/b/veranstaltungen')">Veranstaltungen</a> <a onclick="go('http://kleverkids.de/b/news')">Aktuelles</a> <a onclick="go('http://kleverkids.de/b/stammtisch')">Stammtisch</a> <a onclick="checklogin()">News</a>
 			</div>
 			Login:
-			<form name="login">
-				<input type="text" name="name" id="name">
-				<input type="password" name="pass" id="pass">
-				<input type="button" onClick="login()" value="Login">
-			</form>
+				</br>
+				</input type="text" id="login_name">
+				<a onClick="login()">Login</a>
+
 			<div id="content">
 				Seite konnte nicht geladen werden überprüfen sie bitte ihre Internet Verbindung.
 			</div>
