@@ -36,6 +36,8 @@
 			{
 				var login_n = window.localStorage.getItem("login_name");
 				var login_p = window.localStorage.getItem("login_pass");
+				alert(login_n);
+				alert(login_p);
 				var url = "http://kleverkids.de/mitglied/checkapp.php?un=" + login_n + "&pw=" + login_p;
     			var xmlhttp = new XMLHttpRequest();
    				xmlhttp.onreadystatechange=function(){
