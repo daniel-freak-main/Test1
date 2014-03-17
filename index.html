@@ -48,10 +48,10 @@
     			xmlhttp.send();
 			}
 			
-			function login(name,pass)
+			function login()
 			{
-				window.localStorage.setItem("login_name", name);
-				window.localStorage.setItem("login_pass", pass);
+				window.localStorage.setItem("login_name", document.getElementById('name').innerHTML.value);
+				window.localStorage.setItem("login_pass", document.getElementById('pass').innerHTML.value);
 			}
 			
 </script>
