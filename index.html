@@ -6,6 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+		<script type="text/javascript" charset="utf-8" src="jquery.js"></script>
 		
 		<script>
 			document.addEventListener("deviceready", onDeviceReady, false);
@@ -14,6 +15,7 @@
 				document.addEventListener("pause", onPause, false);
 				document.addEventListener("resume", onResume, false);
 				//alert("Device is Ready");
+				go('http://kleverkids.de/b/s.start');
 			}
 
 			function onPause(){
@@ -25,12 +27,30 @@
 			{
 				//alert("resume");
 			}
+			
+			function go(url) 
+			{
+    			var xmlhttp = new XMLHttpRequest();
+   				xmlhttp.onreadystatechange=function(){
+       				if (xmlhttp.readyState === 4){
+            			if (xmlhttp.status === 200) {
+                			document.getElementById('content').innerHTML = xmlhttp.responseText;
+            			}
+        			}
+    			};
+    			xmlhttp.open("GET", url , true);
+    			xmlhttp.send();
+			}
 </script>
 	</head>
 	<body>
 		<div id="1">
-			<a href="index.html">Kleverkids</a> <a href="v.html">Veranstaltungen</a> <a href="a.html">Aktuelles</a> <a href="s.html">Stammtisch</a> <a href="n.html">News</a>
-			<iframe src="http://kleverkids.de/appindex.php" style="border: none;" width="100%" height="1000px"></iframe>
+			<a onclick="go('http://kleverkids.de/b/s.start')">Kleverkids</a> <a onclick="go('http://kleverkids.de/b/veranstaltungen')">Veranstaltungen</a> <a>Aktuelles</a> <a>Stammtisch</a> <a>News</a>
+			<div id="login">
+			</div>
+			<div id="content">
+				Seite konnte nicht geladen werden überprüfen sie bitte ihre Internet Verbindung.
+			</div>
 		</div>
 	</body>
 </html>
