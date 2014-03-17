@@ -49,9 +49,12 @@
 			}
 			
 			function login()
-			{
+			{	
+				alert(document.getElementById('name').innerHTML.value);
+				alert(document.getElementById('pass').innerHTML.value);
 				window.localStorage.setItem("login_name", document.getElementById('name').innerHTML.value);
 				window.localStorage.setItem("login_pass", document.getElementById('pass').innerHTML.value);
+				checklogin();
 			}
 			
 </script>
