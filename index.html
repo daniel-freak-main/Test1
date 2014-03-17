@@ -13,12 +13,13 @@
 			document.addEventListener("deviceready", onDeviceReady, false);
 
 			function onDeviceReady() {
-				//alert("Device is Ready");
+				alert("Device is Ready");
 				go('http://kleverkids.de/b/s.start');
 			}
 			
 			function go(url) 
 			{
+				alert("go to");
     			var xmlhttp = new XMLHttpRequest();
    				xmlhttp.onreadystatechange=function(){
        				if (xmlhttp.readyState === 4){
@@ -33,6 +34,7 @@
 			
 			function checklogin() 
 			{
+				alert("check");
 				var login_n = window.localStorage.getItem("login_name");
 				var login_p = window.localStorage.getItem("login_pass");
 				var url = "http://kleverkids.de/mitglied/checkapp.php?un=" + login_n + "&pw=" + login_p;
@@ -50,10 +52,11 @@
 			
 			function login()
 			{	
+				alert("Login");
 				var n = document.getElementById('name').value;
 				window.localStorage.setItem("login_name", n);
 				var p = document.getElementById('pass').value;
-				window.localStorage.setItem("login_pass", );
+				window.localStorage.setItem("login_pass", p);
 				checklogin();
 			}
 			
