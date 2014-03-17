@@ -51,7 +51,9 @@
 			function login()
 			{	
 				var n = document.getElementById('name').value;
-				alert(n);
+				window.localStorage.setItem("login_name", n);
+				var p = document.getElementById('pass').value;
+				window.localStorage.setItem("login_pass", );
 				checklogin();
 			}
 			
@@ -60,7 +62,7 @@
 	<body>
 		<div id="1">
 			<div style="background-color: # F00;">
-				<input type="text" name="name" id="name"><a onClick="login()">Login</a><a onclick="go('http://kleverkids.de/b/s.start')">Kleverkids</a> <a onclick="go('http://kleverkids.de/b/veranstaltungen')">Veranstaltungen</a> <a onclick="go('http://kleverkids.de/b/news')">Aktuelles</a> <a onclick="go('http://kleverkids.de/b/stammtisch')">Stammtisch</a> <a onclick="checklogin()">News</a>
+				<a onclick="go('http://kleverkids.de/b/s.start')">Kleverkids</a> <a onclick="go('http://kleverkids.de/b/veranstaltungen')">Veranstaltungen</a> <a onclick="go('http://kleverkids.de/b/news')">Aktuelles</a> <a onclick="go('http://kleverkids.de/b/stammtisch')">Stammtisch</a> <a onclick="checklogin()">News</a>
 			</div>
 		
 
