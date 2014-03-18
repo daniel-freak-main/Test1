@@ -64,25 +64,35 @@
 			
 			function high(url)
 			{
-				document.getElementById('l1').style = "";
-				document.getElementById('l2').style = "";
-				document.getElementById('l3').style = "";
-				document.getElementById('l4').style = "";
-				document.getElementById('l5').style = "";
+				document.all.l1.style.backgroundColor = "#FF0000";
+				document.all.l2.style.backgroundColor = "#FF0000";
+				document.all.l3.style.backgroundColor = "#FF0000";
+				document.all.l4.style.backgroundColor = "#FF0000";
+				document.all.l5.style.backgroundColor = "#FF0000";
+				document.all.l1.style.color = "#FFFFFF";
+				document.all.l2.style.color = "#FFFFFF";
+				document.all.l3.style.color = "#FFFFFF";
+				document.all.l4.style.color = "#FFFFFF";
+				document.all.l5.style.color = "#FFFFFF";
 				if(url == 'http://kleverkids.de/b/s.start'){
-					document.getElementById('l1').style = "color: #00FFFF;";
+					document.all.l1.style.backgroundColor = "#EEEEFF";
+					document.all.l1.style.color = "#FF9900";
 				}
 				if(url == 'http://kleverkids.de/b/veranstaltungen'){
-					document.getElementById('l2').style = "color: #00FFFF;";
+					document.all.l2.style.backgroundColor = "#EEEEFF";
+					document.all.l2.style.color = "#FF9900";
 				}
 				if(url == 'http://kleverkids.de/b/news'){
-					document.getElementById('l3').style = "color: #00FFFF;";
+					document.all.l3.style.backgroundColor = "#EEEEFF";
+					document.all.l3.style.color = "#FF9900";
 				}
 				if(url == 'http://kleverkids.de/b/stammtisch'){
-					document.getElementById('l4').style = "color: #00FFFF;";
+					document.all.l4.style.backgroundColor = "#EEEEFF";
+					document.all.l4.style.color = "#FF9900";
 				}
 				if(url == 'news'){
-					document.getElementById('l5').style = "color: #00FFFF;";
+					document.all.l5.style.backgroundColor = "#EEEEFF";
+					document.all.l5.style.color = "#FF9900";
 				}
 			}
 			
@@ -105,6 +115,10 @@
 		margin-top:20px;
 		margin: auto;
 		background-color: #EEEEFF;
+	}
+	#l1{
+		background-color: #EEEEFF;
+		color:#FF9900;
 	}
 </style>
 	</head>
