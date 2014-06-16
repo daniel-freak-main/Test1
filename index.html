@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
-	<title>&nbsp;</title>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8;" lang="de" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
@@ -25,7 +24,17 @@
    				xmlhttp.onreadystatechange=function(){
        				if (xmlhttp.readyState === 4){
             			if (xmlhttp.status === 200) {
-                			document.getElementById('content').innerHTML = "G";
+							var inhalt = xmlhttp.responseText;
+							var inhalt1 = inhalt.replace("Ä","&Auml;");
+							var inhalt2 = inhalt1.replace("ä","&auml;");
+							var inhalt3 = inhalt2.replace("Ü","&Uuml;");
+							var inhalt4 = inhalt3.replace("�","&uuml;");
+							var inhalt5 = inhalt4.replace("O","&Ouml;");
+							var inhalt6 = inhalt5.replace("o","&ouml;");
+							var inhalt7 = inhalt6.replace("�","&bdquo;");
+							var inhalt8 = inhalt7.replace("�","&ldquo;");
+							var inhalt9 = inhalt8.replace("�","e");
+                			document.getElementById('content').innerHTML = inhalt9;
             			}
         			}
     			};
