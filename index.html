@@ -13,6 +13,7 @@
 
 			function onDeviceReady() {
 				//alert("Device is Ready");
+				checklogout();
 				go('http://kleverkids.de/b/s.start');
 			}
 			
@@ -60,6 +61,37 @@
 				var p = document.getElementById('pass').value;
 				window.localStorage.setItem("login_pass", p);
 				checklogin();
+			}
+			
+			function logout()
+			{	
+				window.localStorage.setItem("login_name", "");
+				window.localStorage.setItem("login_pass", "");
+				checklogout();
+			}
+			
+			function checklogout()
+			{
+				var login_n = window.localStorage.getItem("login_name");
+				var login_p = window.localStorage.getItem("login_pass");
+				var url = "http://kleverkids.de/mitglied/checklogout.php?un=" + login_n + "&pw=" + login_p;
+    			var xmlhttp = new XMLHttpRequest();
+   				xmlhttp.onreadystatechange=function(){
+       				if (xmlhttp.readyState === 4){
+            			if (xmlhttp.status === 200) {
+                			if(xmlhttp.responseText == "LO")
+							{
+								alert("Logout");
+							}
+							else
+							{
+								alert("Login");
+							}
+            			}
+        			}
+    			};
+    			xmlhttp.open("GET", url , true);
+    			xmlhttp.send();
 			}
 			
 			function high(url)
