@@ -25,16 +25,20 @@
        				if (xmlhttp.readyState === 4){
             			if (xmlhttp.status === 200) {
 							var inhalt = xmlhttp.responseText;
-							var inhalt1 = inhalt.replace("Ä","&Auml;");
-							var inhalt2 = inhalt1.replace("ä","&auml;");
-							var inhalt3 = inhalt2.replace("Ü","&Uuml;");
-							var inhalt4 = inhalt3.replace("�","&uuml;");
-							var inhalt5 = inhalt4.replace("O","&Ouml;");
-							var inhalt6 = inhalt5.replace("o","&ouml;");
-							var inhalt7 = inhalt6.replace("�","&bdquo;");
-							var inhalt8 = inhalt7.replace("�","&ldquo;");
-							var inhalt9 = inhalt8.replace("�","e");
-                			document.getElementById('content').innerHTML = inhalt9;
+							var i = 0;
+							while(i < 1000){
+								i++;
+								var inhalt = inhalt.replace("Ä","&Auml;");
+								var inhalt = inhalt.replace("ä","&auml;");
+								var inhalt = inhalt.replace("Ü","&Uuml;");
+								var inhalt = inhalt.replace("�","&uuml;");
+								var inhalt = inhalt.replace("O","&Ouml;");
+								var inhalt = inhalt.replace("o","&ouml;");
+								var inhalt = inhalt.replace("�","&bdquo;");
+								var inhalt = inhalt.replace("�","&ldquo;");
+								var inhalt = inhalt.replace("�","e");
+							}
+                			document.getElementById('content').innerHTML = inhalt;
             			}
         			}
     			};
