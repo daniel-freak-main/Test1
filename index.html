@@ -25,23 +25,10 @@
        				if (xmlhttp.readyState === 4){
             			if (xmlhttp.status === 200) {
 							var inhalt = xmlhttp.responseText;
-							var i = 0;
-							while(i < 1000){
-								i++;
-								var inhalt = inhalt.replace("Ä","&Auml;");
-								var inhalt = inhalt.replace("ä","&auml;");
-								var inhalt = inhalt.replace("Ü","&Uuml;");
-								var inhalt = inhalt.replace("�","&uuml;");
-								var inhalt = inhalt.replace("O","&Ouml;");
-								var inhalt = inhalt.replace("o","&ouml;");
-								var inhalt = inhalt.replace("�","&bdquo;");
-								var inhalt = inhalt.replace("�","&ldquo;");
-								var inhalt = inhalt.replace("�","e");
-							}
                 			document.getElementById('content').innerHTML = inhalt;
             			}
         			}
-    			};
+    			}
     			xmlhttp.open("GET", url , true);
     			xmlhttp.send();
 			}
