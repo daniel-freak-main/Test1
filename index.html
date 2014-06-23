@@ -16,7 +16,6 @@
 			var version = 3;
 			
 			var code = "";
-			onDeviceReady();
 			function onDeviceReady() {
 				alert("Device is Ready");
 				UFA();
@@ -36,8 +35,13 @@
 							checklogin_chat('');
 						}
 					}
-					UFA();
+					UFB();
 				}, 1000);
+			}
+			function UFB(){
+				setTimeout(function() {
+					UFA();
+				}, 100);
 			}
 			
 			function go(url) 
