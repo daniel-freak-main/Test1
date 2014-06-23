@@ -29,7 +29,10 @@
 				setTimeout(function() {
 					i++;
    			 		document.getElementById('vv').innerHTML = i;
-					update(); 
+					alert("ff");
+					if(document.getElementById('eingabe_chat').value == ""){
+						checklogin_chat('');
+					}
 					UFA();
 				}, 1000);
 			}
