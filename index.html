@@ -18,17 +18,16 @@
 			var code = "";
 			onDeviceReady();
 			function onDeviceReady() {
-				//alert("Device is Ready");
+				alert("Device is Ready");
+				UFA();
 				checklogout();
 				checkupdate();
 				go('http://kleverkids.de/b/s.start');
-				UFA();
+				
 			}
 			
 			function UFA(){
 				setTimeout(function() {
-					i++;
-   			 		document.getElementById('vv').innerHTML = i;
 					alert("Update");
 					//if(document.getElementById('eingabe_chat').value == ""){
 					//	checklogin_chat('');
