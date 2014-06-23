@@ -13,36 +13,18 @@
 			
 			document.addEventListener("deviceready", onDeviceReady, false);
 			
-			var version = 3;
+			var version = 4;
 			
 			var code = "";
 			function onDeviceReady() {
 				alert("Device is Ready");
-				UFA();
 				checklogout();
 				checkupdate();
 				go('http://kleverkids.de/b/s.start');
 				
 			}
 			
-			function UFA(){
-				setTimeout(function() {
-					alert("Update");
-					if(document.getElementById('eingabe_chat').value == ""){
-						alert("Update1");
-						if(document.getElementById('eingabe_chat').name == "Inhalt"){
-							alert("Update2");
-							checklogin_chat('');
-						}
-					}
-					UFB();
-				}, 1000);
-			}
-			function UFB(){
-				setTimeout(function() {
-					UFA();
-				}, 100);
-			}
+			
 			
 			function go(url) 
 			{
