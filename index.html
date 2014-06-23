@@ -6,7 +6,7 @@
 
 		<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 		<script type="text/javascript" charset="utf-8" src="jquery.js"></script>
-       <!-- <script type="text/javascript" charset="utf-8" src="Update.js">-->
+      
        </script>
 		
 		<script>
@@ -22,11 +22,16 @@
 				checklogout();
 				checkupdate();
 				go('http://kleverkids.de/b/s.start');
-				var worker = new Worker('Update.js');
-				worker.onmessage = function(){
-					alert("uhhu");
-				}
-				worker.postMessage();
+				UFA();
+			}
+			
+			function UFA(){
+				setTimeout(function() {
+					i++;
+   			 		document.getElementById('vv').innerHTML = i;
+					update(); 
+					UFA();
+				}, 1000);
 			}
 			
 			function go(url) 
