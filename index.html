@@ -29,9 +29,13 @@
 			function UFA(){
 				setTimeout(function() {
 					alert("Update");
-					//if(document.getElementById('eingabe_chat').value == ""){
-					//	checklogin_chat('');
-					//}
+					if(document.getElementById('eingabe_chat').value == ""){
+						alert("Update1");
+						if(document.getElementById('eingabe_chat').name == "Inhalt"){
+							alert("Update2");
+							checklogin_chat('');
+						}
+					}
 					UFA();
 				}, 1000);
 			}
