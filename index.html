@@ -9,7 +9,7 @@
       
        </script>
 		
-		<script>
+		<script type="text/javascript">
 			
 			document.addEventListener("deviceready", onDeviceReady, false);
 			
@@ -17,8 +17,7 @@
 			
 			var code = "";
 			function onDeviceReady() {
-				//alert("Device is Ready");
-				checklogout();
+				alert("Device is Ready");
 				checkupdate();
 				go('http://kleverkids.de/b/s.start');
 				
@@ -26,7 +25,8 @@
 			
 			
 			function go(url) 
-			{	alert("go");
+			{	
+				alert("go");
 				high(url);
     			var xmlhttp = new XMLHttpRequest();
    				xmlhttp.onreadystatechange=function(){
@@ -64,59 +64,60 @@
             			}
         			}
     			}
-    			xmlhttp.open("GET", url , true);
+				xmlhttp.open("GET", url , true);
     			xmlhttp.send();
 			}
 			
 			function high(url)
 			{
-				document.all.l1.style.backgroundColor = "#FF0000";
-				document.all.l2.style.backgroundColor = "#FF0000";
-				document.all.l3.style.backgroundColor = "#FF0000";
-				document.all.l4.style.backgroundColor = "#FF0000";
-				document.all.l5.style.backgroundColor = "#FF0000";
-				document.all.l6.style.backgroundColor = "#FF0000";
-				document.all.l7.style.backgroundColor = "#FF0000";
-				document.all.l8.style.backgroundColor = "#FF0000";
-				document.all.l1.style.color = "#FFFFFF";
-				document.all.l2.style.color = "#FFFFFF";
-				document.all.l3.style.color = "#FFFFFF";
-				document.all.l4.style.color = "#FFFFFF";
-				document.all.l5.style.color = "#FFFFFF";
-				document.all.l6.style.color = "#FFFFFF";
-				document.all.l7.style.color = "#FFFFFF";
-				document.all.l8.style.color = "#FFFFFF";
+				alert(url);
+				document.getElementById('l1').style.backgroundColor = '#FF0000';
+				document.getElementById('l2').style.backgroundColor = "#FF0000";
+				document.getElementById('l3').style.backgroundColor = "#FF0000";
+				document.getElementById('l4').style.backgroundColor = "#FF0000";
+				document.getElementById('l5').style.backgroundColor = "#FF0000";
+				document.getElementById('l6').style.backgroundColor = "#FF0000";
+				document.getElementById('l7').style.backgroundColor = "#FF0000";
+				document.getElementById('l8').style.backgroundColor = "#FF0000";
+				document.getElementById('l1').style.color = "#FFFFFF";
+				document.getElementById('l2').style.color = "#FFFFFF";
+				document.getElementById('l3').style.color = "#FFFFFF";
+				document.getElementById('l4').style.color = "#FFFFFF";
+				document.getElementById('l5').style.color = "#000000";
+				document.getElementById('l6').style.color = "#FFFFFF";
+				document.getElementById('l7').style.color = "#FFFFFF";
+				document.getElementById('l8').style.color = "#FFFFFF";
 				if(url == 'start'){
-					document.all.l1.style.backgroundColor = "#EEEEFF";
-					document.all.l1.style.color = "#FF9900";
+					document.getElementById('l1').style.backgroundColor = "#EEEEFF";
+					document.getElementById('l1').style.color = "#FF9900";
 				}
 				if(url == 'veranstaltungen'){
-					document.all.l2.style.backgroundColor = "#EEEEFF";
-					document.all.l2.style.color = "#FF9900";
+					document.getElementById('l2').style.backgroundColor = "#EEEEFF";
+					document.getElementById('l2').style.color = "#FF9900";
 				}
 				if(url == 'stammtisch'){
-					document.all.l3.style.backgroundColor = "#EEEEFF";
-					document.all.l3.style.color = "#FF9900";
+					document.getElementById('l3').style.backgroundColor = "#EEEEFF";
+					document.getElementById('l3').style.color = "#FF9900";
 				}
 				if(url == 'appimpresum'){
-					document.all.l4.style.backgroundColor = "#EEEEFF";
-					document.all.l4.style.color = "#FF9900";
+					document.getElementById('l4').style.backgroundColor = "#EEEEFF";
+					document.getElementById('l4').style.color = "#FF9900";
 				}
 				if(url == 'update'){
-					document.all.l5.style.backgroundColor = "#EEEEFF";
-					document.all.l5.style.color = "#FF9900";
+					document.getElementById('l5').style.backgroundColor = "#EEEEFF";
+					document.getElementById('l5').style.color = "#FF9900";
 				}
 				if(url == 'x'){
-					document.all.l7.style.backgroundColor = "#EEEEFF";
-					document.all.l7.style.color = "#FF9900";
+					document.getElementById('l6').style.backgroundColor = "#EEEEFF";
+					document.getElementById('l6').style.color = "#FF9900";
 				}
 				if(url == 'x'){
-					document.all.l6.style.backgroundColor = "#EEEEFF";
-					document.all.l6.style.color = "#FF9900";
+					document.getElementById('l7').style.backgroundColor = "#EEEEFF";
+					document.getElementById('l7').style.color = "#FF9900";
 				}
 				if(url == 'x'){
-					document.all.l8.style.backgroundColor = "#EEEEFF";
-					document.all.l8.style.color = "#FF9900";
+					document.getElementById('l8').style.backgroundColor = "#EEEEFF";
+					document.getElementById('l8').style.color = "#FF9900";
 				}
 			}
 			
@@ -153,9 +154,9 @@
 		<div id="main">
 			<div id="links">
 				<img src="Kids.gif" width="90" height="70" alt="" /><a id="l1" onclick="go('start')">Kleverkids</a>
-				<a id="l2" onclick="go('veranstaltungen')">Veranstaltungen</a>
-				<a id="l3" onclick="go('stammtisch')">Stammtisch</a> 
-				<a id="l4" onclick="go('appimpresum')">Impresum</a> 
+				<a id="l2" onclick="go('veranstaltungen');">Veranstaltungen</a>
+				<a id="l3" onclick="go('stammtisch');">Stammtisch</a> 
+				<a id="l4" onclick="go('appimpresum');">Impresum</a> 
 				<a id="l5" href="http://build.phonegap.com/apps/779832/install/?qr_key=fJRojhEKmMAb64RxW7zq">Update</a>
 			</div>
 			<div id="content">
