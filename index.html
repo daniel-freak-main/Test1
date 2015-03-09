@@ -50,7 +50,6 @@
        				if (xmlhttp.readyState === 4){
             			if (xmlhttp.status === 200) {
 							var newversion = parseInt(xmlhttp.responseText);
-							alert(newversion + "version");
                 			if(newversion > version)
 							{
 								document.getElementById('l8').innerHTML = "Update";
@@ -99,7 +98,7 @@
 	<body>
 		<div id="main">
 			<div id="links">
-				<img src="Kids.gif" width="90" height="70" alt="" /><a class="ls" id="l1" onclick="go('start')">Kleverkids</a> 
+				<img src="Kids.gif" width="45" height="35" alt="Kleverkids" /><a class="ls" id="l1" onclick="go('start')">Kleverkids</a> 
 				<a class="ls" id="l2" onclick="go('veranstaltungen')">Veranstaltungen</a> 
 				<a class="ls" id="l3" onclick="go('kontaktm')">Kontakt</a> 
 				<a class="ls" id="l4" onclick="go('stammtisch')">Stammtisch</a> 
