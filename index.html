@@ -26,17 +26,20 @@
 			
 			
 			function go(url) 
-			{
+			{	alert("go");
 				high(url);
     			var xmlhttp = new XMLHttpRequest();
    				xmlhttp.onreadystatechange=function(){
        				if (xmlhttp.readyState === 4){
+       					alert("ready");
             			if (xmlhttp.status === 200) {
+            				alert("200");
 							var inhalt = xmlhttp.responseText;
                 			document.getElementById('content').innerHTML = inhalt;
             			}
         			}
     			}
+    			alert("http://kleverkids.de/appindex.php?s="+url);
     			xmlhttp.open("GET", "http://kleverkids.de/appindex.php?s="+url , true);
     			xmlhttp.send();
 			}
