@@ -25,11 +25,9 @@
 			}
 			
 			
-			
 			function go(url) 
 			{
 				high(url);
-				//alert("go to");
     			var xmlhttp = new XMLHttpRequest();
    				xmlhttp.onreadystatechange=function(){
        				if (xmlhttp.readyState === 4){
@@ -39,121 +37,14 @@
             			}
         			}
     			}
-    			xmlhttp.open("GET", url , true);
+    			xmlhttp.open("GET", "http://kleverkids.de/appindex.php?s="+url , true);
     			xmlhttp.send();
 			}
 			
-			function checklogin() 
-			{
-				//alert("check");
-				var login_n = window.localStorage.getItem("login_name");
-				var login_p = window.localStorage.getItem("login_pass");
-				var url = "http://kleverkids.de/mitglied/checkapp.php?un=" + login_n + "&pw=" + login_p;
-    			var xmlhttp = new XMLHttpRequest();
-   				xmlhttp.onreadystatechange=function(){
-       				if (xmlhttp.readyState === 4){
-            			if (xmlhttp.status === 200) {
-                			go("http://kleverkids.de/mitglied/b/dateien/getnews.php?a=" + xmlhttp.responseText);
-                			high("news");
-            			}
-        			}
-    			};
-    			xmlhttp.open("GET", url , true);
-    			xmlhttp.send();
-				checklogout();
-			}
-			
-			function checklogin_media() 
-			{
-				//alert("check");
-				var login_n = window.localStorage.getItem("login_name");
-				var login_p = window.localStorage.getItem("login_pass");
-				var url = "http://kleverkids.de/mitglied/checkapp.php?un=" + login_n + "&pw=" + login_p;
-    			var xmlhttp = new XMLHttpRequest();
-   				xmlhttp.onreadystatechange=function(){
-       				if (xmlhttp.readyState === 4){
-            			if (xmlhttp.status === 200) {
-                			go("http://kleverkids.de/mitglied/b/dateien/getmedia.php?a=" + xmlhttp.responseText);
-                			high("media");
-            			}
-        			}
-    			};
-    			xmlhttp.open("GET", url , true);
-    			xmlhttp.send();
-				checklogout();
-			}
-			
-			function checklogin_chat(new_c) 
-			{
-				//alert("check");
-				var login_n = window.localStorage.getItem("login_name");
-				var login_p = window.localStorage.getItem("login_pass");
-				var url = "http://kleverkids.de/mitglied/checkapp.php?un=" + login_n + "&pw=" + login_p;
-    			var xmlhttp = new XMLHttpRequest();
-   				xmlhttp.onreadystatechange=function(){
-       				if (xmlhttp.readyState === 4){
-            			if (xmlhttp.status === 200) {
-							code = xmlhttp.responseText;
-                			go("http://kleverkids.de/mitglied/b/dateien/getchat.php?u=" + login_n  + "&&a=" + xmlhttp.responseText + "&&n=" + new_c);
-                			high("chat");
-            			}
-        			}
-    			};
-    			xmlhttp.open("GET", url , true);
-    			xmlhttp.send();
-				checklogout();
-			}
-			
-			function login()
-			{	
-				//alert("Login");
-				var n = document.getElementById('name').value;
-				window.localStorage.setItem("login_name", n);
-				var p = document.getElementById('pass').value;
-				window.localStorage.setItem("login_pass", p);
-				checklogin();
-			}
-			
-			function logout()
-			{	
-				window.localStorage.setItem("login_name", "");
-				window.localStorage.setItem("login_pass", "");
-				checklogout();
-			}
-			
-			function checklogout()
-			{
-				var login_n = window.localStorage.getItem("login_name");
-				var login_p = window.localStorage.getItem("login_pass");
-				var url = "http://kleverkids.de/mitglied/checklogout.php?un=" + login_n + "&pw=" + login_p;
-    			var xmlhttp = new XMLHttpRequest();
-   				xmlhttp.onreadystatechange=function(){
-       				if (xmlhttp.readyState === 4){
-            			if (xmlhttp.status === 200) {
-                			if(xmlhttp.responseText == "LO")
-							{
-								document.getElementById('logout').innerHTML = "Logout";
-								document.getElementById('l5').innerHTML = "News";
-								document.getElementById('l6').innerHTML = "Media";
-								document.getElementById('l7').innerHTML = "Chat";
-							}
-							else
-							{
-								document.getElementById('logout').innerHTML = "";
-								document.getElementById('l5').innerHTML = "Login";
-								document.getElementById('l6').innerHTML = "";
-								document.getElementById('l7').innerHTML = "";
-							}
-            			}
-        			}
-    			};
-    			xmlhttp.open("GET", url , true);
-    			xmlhttp.send();
-			}
-			
+
 			function checkupdate()
 			{
-				var url = "http://kleverkids.de/b/appversion";
+				var url = "http://kleverkids.de/b/dateien/appversion.txt";
     			var xmlhttp = new XMLHttpRequest();
    				xmlhttp.onreadystatechange=function(){
        				if (xmlhttp.readyState === 4){
@@ -161,11 +52,11 @@
 							var newversion = parseInt(xmlhttp.responseText);
                 			if(newversion > version)
 							{
-								document.getElementById('l8').innerHTML = "Update";
+								document.getElementById('l5').innerHTML = "Update";
 							}
 							else
 							{
-								document.getElementById('l8').innerHTML = "";
+								document.getElementById('l5').innerHTML = "";
 							}
             			}
         			}
@@ -192,35 +83,35 @@
 				document.all.l6.style.color = "#FFFFFF";
 				document.all.l7.style.color = "#FFFFFF";
 				document.all.l8.style.color = "#FFFFFF";
-				if(url == 'http://kleverkids.de/b/s.start'){
+				if(url == 'start'){
 					document.all.l1.style.backgroundColor = "#EEEEFF";
 					document.all.l1.style.color = "#FF9900";
 				}
-				if(url == 'http://kleverkids.de/b/veranstaltungen'){
+				if(url == 'veranstaltungen'){
 					document.all.l2.style.backgroundColor = "#EEEEFF";
 					document.all.l2.style.color = "#FF9900";
 				}
-				if(url == 'http://kleverkids.de/b/news'){
+				if(url == 'stammtisch'){
 					document.all.l3.style.backgroundColor = "#EEEEFF";
 					document.all.l3.style.color = "#FF9900";
 				}
-				if(url == 'http://kleverkids.de/b/stammtisch'){
+				if(url == 'appimpresum'){
 					document.all.l4.style.backgroundColor = "#EEEEFF";
 					document.all.l4.style.color = "#FF9900";
 				}
-				if(url == 'news'){
+				if(url == 'update'){
 					document.all.l5.style.backgroundColor = "#EEEEFF";
 					document.all.l5.style.color = "#FF9900";
 				}
-				if(url == 'chat'){
+				if(url == 'x'){
 					document.all.l7.style.backgroundColor = "#EEEEFF";
 					document.all.l7.style.color = "#FF9900";
 				}
-				if(url == 'media'){
+				if(url == 'x'){
 					document.all.l6.style.backgroundColor = "#EEEEFF";
 					document.all.l6.style.color = "#FF9900";
 				}
-				if(url == 'http://kleverkids.de/b/appupdate'){
+				if(url == 'x'){
 					document.all.l8.style.backgroundColor = "#EEEEFF";
 					document.all.l8.style.color = "#FF9900";
 				}
@@ -258,7 +149,11 @@
 	<body>
 		<div id="main">
 			<div id="links">
-				<img src="Kids.gif" width="90" height="70" alt="" /><a id="l1" onclick="go('http://kleverkids.de/b/s.start')">Kleverkids</a> <a id="l2" onclick="go('http://kleverkids.de/b/veranstaltungen')">Veranstaltungen</a> <a id="l3" onclick="go('http://kleverkids.de/b/news')">Aktuelles</a> <a id="l4" onclick="go('http://kleverkids.de/b/stammtisch')">Stammtisch</a> <a id="l5" onclick="checklogin()">Login</a> <a id="l6" onclick="checklogin_media()"></a> <a id="l7" onclick="checklogin_chat('')"></a> <a id="logout" onclick="logout()">Logout</a> <a id="l8" href="http://build.phonegap.com/apps/779832/install/?qr_key=fJRojhEKmMAb64RxW7zq">Update</a>
+				<img src="Kids.gif" width="90" height="70" alt="" /><a id="l1" onclick="go('start')">Kleverkids</a>
+				<a id="l2" onclick="go('veranstaltungen')">Veranstaltungen</a>
+				<a id="l3" onclick="go('stammtisch')">Stammtisch</a> 
+				<a id="l4" onclick="go('appimpresum')">Impresum</a> 
+				<a id="l5" href="http://build.phonegap.com/apps/779832/install/?qr_key=fJRojhEKmMAb64RxW7zq">Update</a>
 			</div>
 			<div id="content">
 				Seite konnte nicht geladen werden überprüfen sie bitte ihre Internet Verbindung.
