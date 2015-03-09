@@ -18,7 +18,6 @@
 			var code = "";
 			function onDeviceReady() {
 				//alert("Device is Ready");
-				checklogout();
 				checkupdate();
 				go('start');
 				
@@ -29,7 +28,6 @@
 			function go(url) 
 			{	
 				url = "http://kleverkids.de/app.php?s=" + url;
-				alert(url);
     			var xmlhttp = new XMLHttpRequest();
    				xmlhttp.onreadystatechange=function(){
        				if (xmlhttp.readyState === 4){
